@@ -1,0 +1,9 @@
+{
+    "assignments": [
+        { "name": "Finish project", "complete": false, "id": 1, "tag": "math" },
+        { "name": "Read Chapter 4", "complete": false, "id": 2, "tag": "science" },
+        { "name": "Turn in Homework", "complete": true, "id": 3, "tag": "english" },
+        { "name": "Study for Exam", "complete": false, "id": 4, "tag": "science" },
+        { "name": "Write Essay", "complete": false, "id": 5, "tag": "english" }
+    ]
+}
