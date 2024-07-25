@@ -1,9 +1,9 @@
 export default {
     template: `
     <form class="mt-4" @submit.prevent="add">
-            <div class="border border-gray-600 text-black">
-                <input v-model="newAssignment" placeholder="New assignment" class="p-2" />
-                <button class="bg-white p-2 border-l" type="submit">Add</button>
+            <div class="border border-gray-600 text-black flex">
+                <input style="width:100%" v-model="newAssignment" placeholder="New assignment" class="p-2" />
+                <button class="bg-white p-1 border-l" type="submit">Add</button>
             </div>
         </form>
     `,

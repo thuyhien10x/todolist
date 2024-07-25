@@ -1,14 +1,19 @@
 import Assignment from "./Assignment.js";
-
+import AssignmentCreate from "./AssignmentCreate.js";
+import Panel from "./Panel.js";
 export default {
-    components: { Assignment },
+    components: { Assignment, AssignmentCreate, Panel },
 
     template: `
-        <section v-show="assignments.length">
+        <Panel v-show="show && assignments.length" class="w-60" id="my-panel">
+        <div class="flex justify-between items-start">
             <h2 class="font-bold mb-2">
-                {{ title }}
-                <span>({{ assignments.length }})</span>
+            {{ title }}
+            <span>({{ assignments.length }})</span>
             </h2>
+            <button v-show="canToggle" @click="show=false">&times;</button>
+        </div>    
+      
             <div class="flex gap-2">
                 <button 
                     v-for="tag in tags" 
@@ -27,19 +32,25 @@ export default {
                     :assignment="assignment"
                 ></assignment>
             </ul>
-        </section> 
+            <slot></slot>
+            <template #footer>
+                my footer goes here
+            </template>
+        </Panel> 
     `,
 
     data() {
         return {
             currentTag: 'all',
+            show:true
         };
     },
 
     props: {
         assignments: Array,
-        title: String
-    },
+        title: String,
+        canToggle: {type:Boolean, default:true}
+      },
 
     computed: {
         filteredAssignments() {
